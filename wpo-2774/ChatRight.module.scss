@@ -1,0 +1,150 @@
+@import '../../../../assets/styles/variables/index';
+@import '../../../../assets/styles/mixins/index';
+@import '../../../../assets/styles/functions/index';
+
+$generalPath: '../../../../assets/styles/base/_generals.scss';
+$buttonsPath: '../../../../assets/styles/composers/_buttons.scss';
+$textareaPath: '../../../../assets/styles/composers/_textarea.scss';
+$scrollBarPath: '../../../assets/styles/composers/_scrollbar.scss';
+
+.containerBoxed {
+  composes: containerBoxed from $generalPath;
+  margin-bottom: remify(20);
+
+  @include desktopMedium {
+    margin-bottom: remify(12);
+  }
+}
+
+.ticketTranslation {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 18rem);
+  width: 100%;
+
+  @include desktopMedium {
+    height: calc(100vh - 16rem);
+  }
+}
+
+.buttonWrapper {
+  text-align: right;
+}
+
+.buttonTranslate {
+  composes: submitButton from $buttonsPath;
+  width: remify(320);
+}
+
+.customerReplyWrapper {
+  display: flex;
+  padding: remify(20);
+  position: relative;
+  background-color: $qualityColorLight;
+
+  @include desktopMedium {
+    padding: remify(10);
+  }
+}
+
+.customerReply {
+  composes: customTextarea from $textareaPath;
+  background-color: $qualityColorLighter;
+  border: remify(1) solid $inputBorder;
+  border-radius: remify(4);
+  width: 100%;
+  max-height: 9rem;
+  padding: remify(8) remify(30) remify(8) remify(10);
+  line-height: remify(20);
+  resize: none;
+
+  &:disabled {
+    background-color: $bgCard;
+  }
+
+  &::placeholder {
+    color: $thirdColor;
+    -webkit-text-fill-color: $thirdColor;
+    text-transform: uppercase;
+    font-size: remify(14);
+    line-height: remify(20);
+  }
+}
+
+.customerReplyLoader {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  right: remify(30);
+}
+
+.replyBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: remify(15) remify(20) 0;
+  border-top: remify(1) solid $fourthColor;
+
+  @include desktopMedium {
+    padding-top: remify(10);
+  }
+}
+
+.replyTitle {
+  color: $primaryColor;
+  margin: 0;
+
+  @include desktopMedium {
+    font-size: remify(18);
+  }
+}
+
+.textareaWrapper {
+  padding: remify(10) remify(6);
+
+  @include desktopMedium {
+    padding-top: remify(6);
+  }
+}
+
+.customTextarea {
+  composes: customTextarea from $textareaPath;
+  width: 100%;
+  height: 9rem;
+  resize: none;
+
+  &::placeholder {
+    color: $thirdColor;
+    -webkit-text-fill-color: $thirdColor;
+    font-style: italic;
+  }
+
+  @include desktopMedium {
+    height: 4.9rem;
+  }
+}
+
+.buttonQuality {
+  composes: qualityButton from $buttonsPath;
+}
+
+.monacoContainer {
+  width: 100%;
+  height: 9rem;
+
+  .monaco {
+    border-radius: remify(2);
+    height: 100%;
+
+    canvas {
+      width: remify(7) !important;
+      background: #dae4e6;
+    }
+
+    canvas[width='0'] {
+      background: white;
+    }
+  }
+}
+

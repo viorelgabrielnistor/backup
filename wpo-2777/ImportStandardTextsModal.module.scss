@@ -1,0 +1,49 @@
+@import '../../assets/styles/variables/index';
+
+$buttonPath: '../../assets/styles/composers/_buttons.scss';
+
+.wrapper {
+  min-width: 40%;
+  min-height: 40%;
+}
+
+.title {
+  font-size: remify(22);
+  font-weight: 600;
+  color: $secondaryColor;
+}
+
+.modalFooterWithCancel {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.modalFooterWithoutCancel {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cancelBtn {
+  composes: cancelButton from $buttonPath;
+  width: remify(200);
+}
+
+.importDoneBtn {
+  composes: submitButton from $buttonPath;
+  width: remify(200);
+}
+
+.status {
+  margin: auto;
+  text-align: center;
+  line-height: 1.75;
+  font-size: 1.5rem;
+  color: $secondaryColor;
+}
+
+.uploadMessage {
+  color: $secondaryColor;
+  margin-top: 0.25rem;
+}

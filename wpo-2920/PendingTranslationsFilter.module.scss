@@ -1,0 +1,77 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/functions/pxToRem';
+
+$generalPath: '../../assets/styles/base/_generals.scss';
+$buttonPath: '../../assets/styles/composers/_buttons.scss';
+
+.actionLink {
+  composes: actionLink from $generalPath;
+  color: $activeColor;
+  padding: remify(6) 0;
+}
+
+.search {
+  composes: submitButton from $buttonPath;
+  padding: .5rem;
+  min-width: remify(110);
+}
+
+.verificationPendingActive,
+.verificationInProgressActive,
+.verifiedActive,
+.rejectedActive {
+  color: $white;
+}
+
+.verificationPendingActive {
+  background-color: $activeColor;
+}
+
+.verificationInProgressActive {
+  background-color: $inProgressStatusColor;
+}
+
+.verifiedActive {
+  background-color: $verifiedStatusColor;
+}
+
+.rejectedActive {
+  background-color: $alertColor;
+}
+
+.filterButtonWrapper {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 2.3125rem;
+  width: remify(250);
+  flex-grow: 0;
+}
+
+.ticketId {
+  div:nth-child(2) {
+    flex-grow: 2;
+    margin: remify(18);
+  }
+
+  span {
+    margin: auto 0;
+    color: $primaryColor;
+    font-size: 1.125rem;
+    font-weight: 500;
+  }
+
+  width: calc((100vw - 22rem) / 3);
+  margin-top: remify(10);
+  display: flex;
+  justify-content: space-between;
+  align-items: top;
+  padding: remify(5);
+  z-index: 1000;
+}
+
+tfoot td {
+  text-align: center;
+  font-size: 1.125rem;
+  font-weight: 500;
+  height: 3.1rem;
+}
